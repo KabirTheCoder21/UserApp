@@ -1,0 +1,25 @@
+<!-- res/layout/custom_info_window_layout.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/lu_logo"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center_horizontal"/>
+    <TextView
+        android:id="@+id/info_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="University Of Lucknow\n
+226007,Lucknow,India"
+        android:textSize="14sp"
+        android:fontFamily="@font/latolight"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@android:color/black" />
+    <!-- Add other views or information here as needed -->
+</LinearLayout>
