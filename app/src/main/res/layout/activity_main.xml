@@ -34,8 +34,7 @@
             app:menu="@menu/bottom_nav_menu"
             android:padding="8dp"
             android:elevation="12dp"
-            app:labelVisibilityMode="selected"
-            />
+            app:labelVisibilityMode="selected" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <com.google.android.material.navigation.NavigationView

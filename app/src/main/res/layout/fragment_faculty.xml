@@ -3,12 +3,123 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.ui.faculty.FacultyFragment">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="16dp"
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="44sp"
-        android:text="3"
-        android:layout_gravity="center_vertical"
-        android:gravity="center"/>
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="64dp"
+                        android:text="Computer Science"
+                        android:gravity="center"
+                        android:textSize="22sp"
+                        android:textColor="#A19951"
+                        android:textStyle="bold"
+                        android:layout_marginTop="16dp"
+                        android:id="@+id/csTv"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginVertical="8dp"
+                        android:background="#c1c1c1"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/csDepartment"
+                        android:visibility="gone"
+                        android:nestedScrollingEnabled="false"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="64dp"
+                        android:text="Information Technology"
+                        android:gravity="center"
+                        android:id="@+id/itTv"
+                        android:textSize="22sp"
+                        android:textColor="#A19951"
+                        android:textStyle="bold"
+                        android:layout_marginTop="16dp"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginVertical="8dp"
+                        android:background="#c1c1c1"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/itDepartment"
+                        android:visibility="gone"
+                        android:nestedScrollingEnabled="false"/>
+                     <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:id="@+id/meTv"
+                    android:text="Mechanical Engineering"
+                    android:gravity="center"
+                    android:textSize="22sp"
+                    android:textColor="#A19951"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp"
+                    />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginVertical="8dp"
+                        android:background="#c1c1c1"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/meDepartment"
+                        android:visibility="gone"
+                        android:nestedScrollingEnabled="false"/>
+                     <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:id="@+id/eeTv"
+                    android:text="Electrical Engineering"
+                    android:gravity="center"
+                    android:textSize="22sp"
+                    android:textColor="#A19951"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp"
+                    />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginVertical="8dp"
+                        android:background="#c1c1c1"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/eeDepartment"
+                        android:visibility="gone"
+                        android:nestedScrollingEnabled="false"/>
+                    <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:text="Electronics Engineering"
+                    android:id="@+id/eceTv"
+                    android:gravity="center"
+                    android:textSize="22sp"
+                    android:textColor="#A19951"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp"
+                    />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginVertical="8dp"
+                        android:background="#c1c1c1"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/eceDepartment"
+                        android:visibility="gone"
+                        android:nestedScrollingEnabled="false"/>
+                </LinearLayout>
 </FrameLayout>
