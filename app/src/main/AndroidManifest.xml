@@ -15,7 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UserApp"
         tools:targetApi="31">
-
+        <activity
+            android:name="com.example.ui.home.WebView"
+            android:exported="false" />
+        <activity
+            android:name="com.example.ui.home.GlanceU"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 

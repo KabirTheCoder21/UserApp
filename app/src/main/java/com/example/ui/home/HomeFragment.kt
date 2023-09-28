@@ -20,6 +20,10 @@ import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.ui.StyledPlayerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.smarteist.autoimageslider.SliderView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.browser.customtabs.CustomTabColorSchemeParams
+import androidx.browser.customtabs.CustomTabsIntent
+import androidx.cardview.widget.CardView
 
 class HomeFragment : Fragment() {
 
@@ -29,12 +33,13 @@ class HomeFragment : Fragment() {
     private lateinit var facebook: ImageView
     private lateinit var twitter : ImageView
     private lateinit var youtube: ImageView
+    private lateinit var Glance: LinearLayout
 
     private lateinit var sliderView: SliderView
     lateinit var sliderAdapter: SliderAdapter
     lateinit var imageUrl: ArrayList<String>
 
-    lateinit var map: ImageView
+    private lateinit var map: ImageView
 
     lateinit var gridView: GridView
 
@@ -43,6 +48,19 @@ class HomeFragment : Fragment() {
 
     private lateinit var bottomSheetDialog : BottomSheetDialog
     private lateinit var campuses : LinearLayout
+    private lateinit var contact_dir : CardView
+    private lateinit var admission : CardView
+    private lateinit var events : CardView
+    private lateinit var news : CardView
+    private lateinit var academics : CardView
+    private lateinit var exam : CardView
+    private lateinit var result : CardView
+    private lateinit var support : CardView
+    private lateinit var activity : CardView
+    private lateinit var materials : CardView
+    private lateinit var udrc : CardView
+    private lateinit var fees : CardView
+    private lateinit var schoral : CardView
 
     private var isPlay = true
     private var manuallyPaused = false // Added manuallyPaused flag
@@ -55,6 +73,20 @@ class HomeFragment : Fragment() {
         sliderView = view.findViewById(R.id.imageSlider)
        // gridView = view.findViewById(R.id.grid_view)
         map = view.findViewById(R.id.image_map)
+        contact_dir = view.findViewById(R.id.contect_directory)
+        admission = view.findViewById(R.id.admission_home)
+        events = view.findViewById(R.id.events_home)
+        news = view.findViewById(R.id.news_home)
+        academics = view.findViewById(R.id.Academics)
+        exam = view.findViewById(R.id.exams)
+        result = view.findViewById(R.id.results)
+        support = view.findViewById(R.id.support)
+        activity = view.findViewById(R.id.activity)
+        materials = view.findViewById(R.id.material)
+        udrc = view.findViewById(R.id.udrc)
+        fees = view.findViewById(R.id.fees)
+        schoral = view.findViewById(R.id.scholarship)
+
         styledPV = view.findViewById(R.id.styledPV)
         nestedScrollView = view.findViewById(R.id.nestedScrollView)
 
@@ -62,6 +94,7 @@ class HomeFragment : Fragment() {
         facebook = view.findViewById(R.id.facebook)
         twitter = view.findViewById(R.id.twitter)
         youtube = view.findViewById(R.id.youtube)
+
 
         insta.setOnClickListener {
             goToUrl("https://www.instagram.com/lucknow_university__lu/?hl=en","insta")
@@ -75,9 +108,77 @@ class HomeFragment : Fragment() {
         youtube.setOnClickListener {
             goToUrl("https://www.youtube.com/channel/UCtpNUglUAhCIlOc8gww5KuQ","utube")
         }
+
+        Glance = view.findViewById(R.id.univ_at_glance)
+        Glance.setOnClickListener {
+            val intent = Intent(requireContext(), GlanceU::class.java)
+            startActivity(intent)
+
+        }
+
         campuses = view.findViewById(R.id.campuses)
         campuses.setOnClickListener {
             showBottomSheet()
+        }
+        udrc.setOnClickListener {
+            val url = "https://udrc.lkouniv.ac.in/student?cd=MQAzADYAOQA2AA%3D%3D"
+            openUrlInCustomTab(url)
+        }
+        fees.setOnClickListener {
+            val url = "https://www.lkouniv.ac.in/en/page/online-fee-submission"
+            openUrlInCustomTab(url)
+        }
+        schoral.setOnClickListener {
+            val url = "https://scholarship.up.gov.in/"
+            openUrlInCustomTab(url)
+        }
+        materials.setOnClickListener {
+            val url = "https://www.lkouniv.ac.in/en/page/e-content"
+            openUrlInCustomTab(url)
+        }
+        activity.setOnClickListener {
+            val url = "https://www.lkouniv.ac.in/en/news?Newslistslug=en-events&cd=MQAzADcAMgA5AA%3D%3D"
+            openUrlInCustomTab(url)
+        }
+        support.setOnClickListener {
+            val url = "https://www.lkouniv.ac.in/article/en/student-support"
+            openUrlInCustomTab(url)
+        }
+        result.setOnClickListener {
+            val url = "https://www.lkouniv.ac.in/en/page/semester-result"
+            openUrlInCustomTab(url)
+        }
+        exam.setOnClickListener {
+            val url = "https://www.lkouniv.ac.in/en/news?Newslistslug=en-examination-schedule&cd=OAA1AA%3D%3D"
+            openUrlInCustomTab(url)
+        }
+        events.setOnClickListener {
+            val url = "https://www.lkouniv.ac.in/en/news?Newslistslug=en-events&cd=MQAzADcAMgA5AA%3D%3D"
+            openUrlInCustomTab(url)
+        }
+        academics.setOnClickListener {
+//            val intent = Intent(Intent.ACTION_VIEW)
+//            intent.data =
+//                Uri.parse("https://www.lkouniv.ac.in/en/page/academic-calendar")
+//            startActivity(intent)
+            val url = "https://www.lkouniv.ac.in/en/page/academic-calendar"
+            openUrlInCustomTab(url)
+        }
+        contact_dir.setOnClickListener {
+//            val intent = Intent(Intent.ACTION_VIEW)
+//            intent.data =
+//                Uri.parse("https://www.lkouniv.ac.in/article/en/contact-dir")
+//            startActivity(intent)
+            val url = "https://www.lkouniv.ac.in/article/en/contact-dir "
+            openUrlInCustomTab(url)
+        }
+        admission.setOnClickListener {
+            val url = "https://www.lkouniv.ac.in/en/page/at-a-glance"
+            openUrlInCustomTab(url)
+        }
+        news.setOnClickListener {
+            val url = "https://www.lkouniv.ac.in/en/news?Newslistslug=en-student-news&cd=MQAzADcAMgA4AA%3D%3D"
+            openUrlInCustomTab(url)
         }
         setSlider()
         setVideoPlayer()
@@ -86,6 +187,23 @@ class HomeFragment : Fragment() {
 
         return view
     }
+
+
+    fun openUrlInCustomTab(url: String) {
+        val customTabsIntent = CustomTabsIntent.Builder()
+            .setShowTitle(true)
+            .setToolbarColor(resources.getColor(R.color.black)) // Customize the toolbar color
+            .setDefaultColorSchemeParams(
+                CustomTabColorSchemeParams.Builder()
+                .setNavigationBarColor(resources.getColor(R.color.grey)) // Customize the navigation bar color
+                .setToolbarColor(resources.getColor(R.color.black))
+                .build()
+            )
+            .build()
+
+        customTabsIntent.launchUrl(requireContext(), Uri.parse(url))
+    }
+
     private fun showBottomSheet() {
          bottomSheetDialog = BottomSheetDialog(requireContext())
         val dialogView = layoutInflater.inflate(R.layout.bottom_sheet, null)

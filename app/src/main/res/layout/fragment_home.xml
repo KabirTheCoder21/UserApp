@@ -47,12 +47,12 @@
                   android:weightSum="3"
                   android:padding="4dp">
                   <com.google.android.material.card.MaterialCardView
-                      android:id="@+id/univ_at_glance"
                       android:layout_width="0dp"
                       android:layout_height="match_parent"
                       android:layout_weight="1"
                       android:layout_margin="3dp">
                       <LinearLayout
+                          android:id="@+id/univ_at_glance"
                           android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:orientation="vertical"
@@ -156,6 +156,7 @@
                android:weightSum="3"
                android:padding="4dp">
                <com.google.android.material.card.MaterialCardView
+                   android:id="@+id/admission_home"
                    android:layout_width="0dp"
                    android:layout_height="match_parent"
                    android:layout_weight="1"
@@ -183,6 +184,7 @@
                    </LinearLayout>
                </com.google.android.material.card.MaterialCardView>
                <com.google.android.material.card.MaterialCardView
+                   android:id="@+id/events_home"
                    android:layout_width="0dp"
                    android:layout_height="match_parent"
                    android:layout_weight="1"
@@ -211,6 +213,7 @@
                    </LinearLayout>
                </com.google.android.material.card.MaterialCardView>
                <com.google.android.material.card.MaterialCardView
+                   android:id="@+id/news_home"
                    android:layout_width="0dp"
                    android:layout_height="match_parent"
                    android:layout_weight="1"
@@ -246,6 +249,7 @@
                android:weightSum="3"
                android:padding="4dp">
                <com.google.android.material.card.MaterialCardView
+                   android:id="@+id/Academics"
                    android:layout_width="0dp"
                    android:layout_height="match_parent"
                    android:layout_weight="1"
@@ -273,6 +277,7 @@
                    </LinearLayout>
                </com.google.android.material.card.MaterialCardView>
                <com.google.android.material.card.MaterialCardView
+                   android:id="@+id/exams"
                    android:layout_width="0dp"
                    android:layout_height="match_parent"
                    android:layout_weight="1"
@@ -300,6 +305,7 @@
                    </LinearLayout>
                </com.google.android.material.card.MaterialCardView>
                <com.google.android.material.card.MaterialCardView
+                   android:id="@+id/results"
                    android:layout_width="0dp"
                    android:layout_height="match_parent"
                    android:layout_weight="1"
@@ -335,6 +341,7 @@
                android:weightSum="3"
                android:padding="4dp">
                <com.google.android.material.card.MaterialCardView
+                   android:id="@+id/support"
                    android:layout_width="0dp"
                    android:layout_height="match_parent"
                    android:layout_weight="1"
@@ -362,6 +369,7 @@
                    </LinearLayout>
                </com.google.android.material.card.MaterialCardView>
                <com.google.android.material.card.MaterialCardView
+                   android:id="@+id/activity"
                    android:layout_width="0dp"
                    android:layout_height="match_parent"
                    android:layout_weight="1"
@@ -390,6 +398,7 @@
                    </LinearLayout>
                </com.google.android.material.card.MaterialCardView>
                <com.google.android.material.card.MaterialCardView
+                   android:id="@+id/material"
                    android:layout_width="0dp"
                    android:layout_height="match_parent"
                    android:layout_weight="1"
@@ -425,6 +434,7 @@
                android:weightSum="3"
                android:padding="4dp">
                <com.google.android.material.card.MaterialCardView
+                   android:id="@+id/udrc"
                    android:layout_width="0dp"
                    android:layout_height="match_parent"
                    android:layout_weight="1"
@@ -452,6 +462,7 @@
                    </LinearLayout>
                </com.google.android.material.card.MaterialCardView>
                <com.google.android.material.card.MaterialCardView
+                   android:id="@+id/fees"
                    android:layout_width="0dp"
                    android:layout_height="match_parent"
                    android:layout_weight="1"
@@ -480,6 +491,7 @@
                    </LinearLayout>
                </com.google.android.material.card.MaterialCardView>
                <com.google.android.material.card.MaterialCardView
+                   android:id="@+id/scholarship"
                    android:layout_width="0dp"
                    android:layout_height="match_parent"
                    android:layout_weight="1"
