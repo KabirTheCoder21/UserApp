@@ -8,4 +8,12 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string-array name="spinner_items">
+        <item>Select Year</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <!-- Add more items as needed -->
+    </string-array>
 </resources>
