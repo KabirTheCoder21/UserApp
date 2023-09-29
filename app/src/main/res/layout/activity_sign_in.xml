@@ -18,8 +18,6 @@
         android:id="@+id/day_bg"/>
 
 
-
-
     <ImageView
         android:id="@+id/night_landscape"
         android:layout_width="wrap_content"

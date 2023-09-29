@@ -20,8 +20,6 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var sign:TextView
     private lateinit var firebaseAuth:FirebaseAuth
 
-    private lateinit var dayLand: ImageView
-    private lateinit var nightLand: ImageView
     private lateinit var daySky: View
     private lateinit var nightSky: View
     private lateinit var dayNightSwitch: DayNightSwitch
@@ -30,8 +28,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        dayLand = findViewById(R.id.day_landscape)
-        nightLand = findViewById(R.id.night_landscape)
         daySky = findViewById(R.id.day_bg)
         nightSky = findViewById(R.id.night_bg)
         dayNightSwitch = findViewById(R.id.day_night_swithch)
@@ -45,10 +41,10 @@ class LoginActivity : AppCompatActivity() {
         dayNightSwitch.setListener(object : DayNightSwitchListener {
             override fun onSwitch(isNight: Boolean) {
                 if (isNight) {
-                    dayLand.animate().alpha(0f).setDuration(1300)
+//                    dayLand.animate().alpha(0f).setDuration(1300)
                     daySky.animate().alpha(0f).setDuration(1300)
                 } else {
-                    dayLand.animate().alpha(1f).setDuration(1300)
+//                    dayLand.animate().alpha(1f).setDuration(1300)
                     daySky.animate().alpha(1f).setDuration(1300)
                 }
             }
