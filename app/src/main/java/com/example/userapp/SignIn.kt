@@ -194,8 +194,9 @@ class SignIn : AppCompatActivity() {
                 uri = downloadurl
             )
         val uid = firebaseAuth.currentUser?.uid
+        val mail =email.toString()
         if(uid!=null){
-            dbref.child(uid).setValue(data).addOnCompleteListener {
+            dbref.child(mail).setValue(data).addOnCompleteListener {
                 Toast.makeText(this, "uploaded successfully", Toast.LENGTH_SHORT)
                     .show()
             }.addOnFailureListener{
