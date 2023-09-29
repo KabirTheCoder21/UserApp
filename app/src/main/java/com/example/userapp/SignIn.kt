@@ -25,8 +25,6 @@ import com.mahfa.dnswitch.DayNightSwitchListener
 
 class SignIn : AppCompatActivity() {
 
-    private lateinit var dayLand:ImageView
-    private lateinit var nightLand:ImageView
     private lateinit var daySky: View
     private lateinit var nightSky: View
     private lateinit var dayNightSwitch:DayNightSwitch
@@ -59,8 +57,6 @@ class SignIn : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
 
-        dayLand = findViewById(R.id.day_landscape)
-        nightLand = findViewById(R.id.night_landscape)
         daySky = findViewById(R.id.day_bg)
         nightSky = findViewById(R.id.night_bg)
         dayNightSwitch = findViewById(R.id.day_night_swithch)
@@ -82,10 +78,10 @@ class SignIn : AppCompatActivity() {
         dayNightSwitch.setListener(object : DayNightSwitchListener {
             override fun onSwitch(isNight: Boolean) {
                 if (isNight) {
-                    dayLand.animate().alpha(0f).setDuration(1300)
+//                    dayLand.animate().alpha(0f).setDuration(1300)
                     daySky.animate().alpha(0f).setDuration(1300)
                 } else {
-                    dayLand.animate().alpha(1f).setDuration(1300)
+//                    dayLand.animate().alpha(1f).setDuration(1300)
                     daySky.animate().alpha(1f).setDuration(1300)
                 }
             }
@@ -208,6 +204,20 @@ class SignIn : AppCompatActivity() {
             }
         }
     }
+    public override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = firebaseAuth.currentUser
+        if (currentUser != null) {
+            reload()
+        }
+    }
 
+    private fun reload() {
+        val intent = Intent(this,MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+        startActivity(intent)
+        finish()
+    }
 
 }
