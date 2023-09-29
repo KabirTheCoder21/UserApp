@@ -1,8 +1,11 @@
 package com.example.userapp
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -35,14 +38,15 @@ private lateinit var navigationView: NavigationView
         navigationView.setNavigationItemSelectedListener {
             when(it.itemId)
             {
-                R.id.navigation_video_lectures-> Toast.makeText(applicationContext, "clicked video lectures", Toast.LENGTH_SHORT).show()
-                 R.id.navigation_themes-> Toast.makeText(applicationContext, "clicked Themes", Toast.LENGTH_SHORT).show()
-                 R.id.navigation_ebooks-> Toast.makeText(applicationContext, "clicked video lectures", Toast.LENGTH_SHORT).show()
-                 R.id.navigation_themes-> Toast.makeText(applicationContext, "clicked video lectures", Toast.LENGTH_SHORT).show()
-                 R.id.navigation_website-> Toast.makeText(applicationContext, "clicked video lectures", Toast.LENGTH_SHORT).show()
-                 R.id.navigation_share-> Toast.makeText(applicationContext, "clicked video lectures", Toast.LENGTH_SHORT).show()
-                 R.id.navigation_rate_us-> Toast.makeText(applicationContext, "clicked video lectures", Toast.LENGTH_SHORT).show()
-
+                 R.id.navigation_video_lectures-> Toast.makeText(applicationContext, "we will upload soon! Keep in touch with us", Toast.LENGTH_SHORT).show()
+                 R.id.navigation_logout-> Toast.makeText(applicationContext, "clicked logout", Toast.LENGTH_SHORT).show()
+                 R.id.navigation_ebooks-> Toast.makeText(applicationContext, "clicked on ebooks", Toast.LENGTH_SHORT).show()
+                 R.id.navigation_website-> Toast.makeText(applicationContext, "clicked on websites", Toast.LENGTH_SHORT).show()
+                 R.id.navigation_share-> Toast.makeText(applicationContext, "clicked share", Toast.LENGTH_SHORT).show()
+                 R.id.navigation_rate_us-> Toast.makeText(applicationContext, "clicked rate us", Toast.LENGTH_SHORT).show()
+                R.id.feedback -> {
+                    Toast.makeText(applicationContext, "Clicked Feedback", Toast.LENGTH_SHORT).show()
+                }
             }
             true
         }
@@ -50,6 +54,11 @@ private lateinit var navigationView: NavigationView
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
         NavController = Navigation.findNavController(this,R.id.frameLayout)
         NavigationUI.setupWithNavController(bottomNavigationView, NavController)
+    }
+
+    private fun sendEmail() {
+        val intent = Intent(this,Feedback::class.java)
+        startActivity(intent)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
