@@ -48,9 +48,12 @@ class NoticeFragment : Fragment() {
                             list.add(data)
                         }
                     }
-                    adapter = NoticeAdapter(list, requireContext(), recyclerView)
-                    progressBar.visibility = View.GONE
-                    recyclerView.adapter = adapter
+                    list.reverse()
+                    requireActivity().runOnUiThread {
+                        adapter = NoticeAdapter(list, requireContext(), recyclerView)
+                        progressBar.visibility = View.GONE
+                        recyclerView.adapter = adapter
+                    }
                 }
 
                 override fun onCancelled(error: DatabaseError) {

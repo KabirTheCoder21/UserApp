@@ -3,11 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.ui.faculty.FacultyFragment">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="16dp"
-
                     android:orientation="vertical">
 
                     <TextView
@@ -28,7 +31,7 @@
                         android:background="#c1c1c1"/>
                     <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="400dp"
                         android:id="@+id/csDepartment"
                         android:visibility="gone"
                         android:nestedScrollingEnabled="false"/>
@@ -51,7 +54,7 @@
                         android:background="#c1c1c1"/>
                     <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="400dp"
                         android:id="@+id/itDepartment"
                         android:visibility="gone"
                         android:nestedScrollingEnabled="false"/>
@@ -73,7 +76,7 @@
                         android:background="#c1c1c1"/>
                     <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="400dp"
                         android:id="@+id/meDepartment"
                         android:visibility="gone"
                         android:nestedScrollingEnabled="false"/>
@@ -95,7 +98,7 @@
                         android:background="#c1c1c1"/>
                     <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="400dp"
                         android:id="@+id/eeDepartment"
                         android:visibility="gone"
                         android:nestedScrollingEnabled="false"/>
@@ -117,9 +120,10 @@
                         android:background="#c1c1c1"/>
                     <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="400dp"
                         android:id="@+id/eceDepartment"
                         android:visibility="gone"
                         android:nestedScrollingEnabled="false"/>
                 </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </FrameLayout>

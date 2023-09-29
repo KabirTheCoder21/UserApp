@@ -7,7 +7,7 @@
     tools:context="com.example.ui.home.GlanceU">
 
 
-    <androidx.core.widget.NestedScrollView
+    <ScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -53,13 +53,14 @@
                 android:layout_height="match_parent"
                 android:layout_margin="4dp"
                 android:padding="4dp"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                app:cardElevation="6dp">
             <LinearLayout
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:weightSum="5">
+                android:weightSum="6">
                 <ImageView
                     android:layout_margin="4dp"
                     android:layout_gravity="center"
@@ -100,7 +101,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:weightSum="2"
-                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="0dp"
                     android:orientation="horizontal">
                     <Button
                         android:id="@+id/profile_btn_ch"
@@ -130,55 +132,48 @@
                 android:layout_height="match_parent"
                 android:layout_margin="4dp"
                 android:padding="4dp"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                app:cardElevation="6dp">
                 <LinearLayout
                     android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:weightSum="13.">
+                    android:weightSum="6">
                     <ImageView
-                        android:layout_gravity="center"
                         android:layout_margin="4dp"
+                        android:layout_gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:src="@drawable/vc_alok_nw"
-                        android:layout_weight="10.68"/>
-
+                        android:layout_weight="5"/>
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:textSize="14sp"
                         android:textStyle="bold"
+                        android:layout_height="wrap_content"
                         android:textColor="@color/textcolor"
                         android:fontFamily="@font/latoregular"
-                        android:layout_height="wrap_content"
-                        android:text="Prof. Aalok Kumar"/>
+                        android:text="Prof. Alok kumar Rai"/>
+
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/textcolor"
-                        android:fontFamily="@font/latoregular"
-                        android:text="Vice Chancellor"/>
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_gravity="center"
-                        android:gravity="center"
                         android:textSize="14sp"
-                        android:layout_height="wrap_content"
                         android:textColor="@color/textcolor"
                         android:fontFamily="@font/latoregular"
-                        android:text="University of Lucknow"/>
+                        android:layout_marginTop="13dp"
+                        android:text="Vice Chancellor, University of Lucknow"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:weightSum="2"
+                        android:layout_weight="1"
                         android:layout_height="0dp"
-                        android:orientation="horizontal"
-                        android:layout_weight="3">
+                        android:orientation="horizontal">
                         <Button
                             android:id="@+id/profile_btn_vc"
                             android:layout_margin="1dp"
@@ -199,6 +194,7 @@
                             android:text="Message"/>
 
                     </LinearLayout>
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -342,6 +338,6 @@
                     android:layout_marginEnd="2dp"/>
             </LinearLayout>
     </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

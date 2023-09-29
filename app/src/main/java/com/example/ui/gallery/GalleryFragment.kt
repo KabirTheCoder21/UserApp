@@ -55,11 +55,36 @@ class GalleryFragment : Fragment() {
                         val data = it.value.toString()
                         imageList.add(data)
                     }
-                    galleryAdapter = GalleryAdapter(requireContext(), imageList)
-                    otherRecyclerView.layoutManager = GridLayoutManager(requireContext(),4)
-                    otherRecyclerView.adapter = galleryAdapter
-                    otherRecyclerView.hasFixedSize()
-                    ViewCompat.setNestedScrollingEnabled(otherRecyclerView, false);
+                    imageList.reverse()
+                    requireActivity().runOnUiThread {
+                        galleryAdapter = GalleryAdapter(requireContext(), imageList)
+                        otherRecyclerView.layoutManager = GridLayoutManager(requireContext(), 4)
+                        otherRecyclerView.adapter = galleryAdapter
+                        otherRecyclerView.setHasFixedSize(true)
+                        galleryAdapter.notifyDataSetChanged()
+                        otherRecyclerView.addOnScrollListener(object :
+                            RecyclerView.OnScrollListener() {
+                            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                                super.onScrolled(recyclerView, dx, dy)
+                                otherRecyclerView.isNestedScrollingEnabled = true
+                                // This method is called whenever the RecyclerView is scrolled.
+                                // You can use 'dy' to determine the direction of scrolling (positive or negative).
+                                // 'dy' > 0 means scrolling up, 'dy' < 0 means scrolling down.
+                                // Implement your scrolling logic here.
+                            }
+
+                            override fun onScrollStateChanged(
+                                recyclerView: RecyclerView,
+                                newState: Int
+                            ) {
+                                super.onScrollStateChanged(recyclerView, newState)
+
+                                // This method is called when the scroll state changes (e.g., idle, dragging, settling).
+                                // Implement your logic based on the new state if needed.
+                            }
+                        })
+                    }
+                   // ViewCompat.setNestedScrollingEnabled(otherRecyclerView, false);
                 }
 
                 override fun onCancelled(error: DatabaseError) {
@@ -81,11 +106,36 @@ class GalleryFragment : Fragment() {
                         val data = it.value.toString()
                         imageList.add(data)
                     }
-                    galleryAdapter = GalleryAdapter(requireContext(), imageList)
-                    indRecyclerView.layoutManager = GridLayoutManager(requireContext(),4)
-                    indRecyclerView.adapter = galleryAdapter
-                    indRecyclerView.hasFixedSize()
-                    ViewCompat.setNestedScrollingEnabled(indRecyclerView, false);
+                    imageList.reverse()
+                    requireActivity().runOnUiThread {
+                        galleryAdapter = GalleryAdapter(requireContext(), imageList)
+                        indRecyclerView.layoutManager = GridLayoutManager(requireContext(), 4)
+                        indRecyclerView.adapter = galleryAdapter
+                        indRecyclerView.hasFixedSize()
+                        galleryAdapter.notifyDataSetChanged()
+                        indRecyclerView.addOnScrollListener(object :
+                            RecyclerView.OnScrollListener() {
+                            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                                super.onScrolled(recyclerView, dx, dy)
+                                indRecyclerView.isNestedScrollingEnabled = true
+                                // This method is called whenever the RecyclerView is scrolled.
+                                // You can use 'dy' to determine the direction of scrolling (positive or negative).
+                                // 'dy' > 0 means scrolling up, 'dy' < 0 means scrolling down.
+                                // Implement your scrolling logic here.
+                            }
+
+                            override fun onScrollStateChanged(
+                                recyclerView: RecyclerView,
+                                newState: Int
+                            ) {
+                                super.onScrollStateChanged(recyclerView, newState)
+
+                                // This method is called when the scroll state changes (e.g., idle, dragging, settling).
+                                // Implement your logic based on the new state if needed.
+                            }
+                        })
+                    }
+                    // ViewCompat.setNestedScrollingEnabled(indRecyclerView, false);
                 }
 
                 override fun onCancelled(error: DatabaseError) {
@@ -95,7 +145,6 @@ class GalleryFragment : Fragment() {
             }
         )
     }
-
     private fun getConvoImage() {
 
         convoDB.addValueEventListener(
@@ -108,11 +157,36 @@ class GalleryFragment : Fragment() {
                         val data = it.value.toString()
                         imageList.add(data)
                     }
-                    galleryAdapter = GalleryAdapter(requireContext(),imageList)
-                    convoRecyclerView.layoutManager = GridLayoutManager(requireContext(),4)
-                    convoRecyclerView.adapter = galleryAdapter
-                    convoRecyclerView.hasFixedSize()
-                    ViewCompat.setNestedScrollingEnabled(convoRecyclerView, false);
+                    imageList.reverse()
+                    requireActivity().runOnUiThread{
+                        galleryAdapter = GalleryAdapter(requireContext(), imageList)
+                        convoRecyclerView.layoutManager = GridLayoutManager(requireContext(), 4)
+                        convoRecyclerView.adapter = galleryAdapter
+                        convoRecyclerView.hasFixedSize()
+                        galleryAdapter.notifyDataSetChanged()
+                        convoRecyclerView.addOnScrollListener(object :
+                            RecyclerView.OnScrollListener() {
+                            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                                super.onScrolled(recyclerView, dx, dy)
+                                convoRecyclerView.isNestedScrollingEnabled = true
+                                // This method is called whenever the RecyclerView is scrolled.
+                                // You can use 'dy' to determine the direction of scrolling (positive or negative).
+                                // 'dy' > 0 means scrolling up, 'dy' < 0 means scrolling down.
+                                // Implement your scrolling logic here.
+                            }
+
+                            override fun onScrollStateChanged(
+                                recyclerView: RecyclerView,
+                                newState: Int
+                            ) {
+                                super.onScrollStateChanged(recyclerView, newState)
+
+                                // This method is called when the scroll state changes (e.g., idle, dragging, settling).
+                                // Implement your logic based on the new state if needed.
+                            }
+                        })
+                    }
+                 //   ViewCompat.setNestedScrollingEnabled(convoRecyclerView, false);
                 }
 
                 override fun onCancelled(error: DatabaseError) {

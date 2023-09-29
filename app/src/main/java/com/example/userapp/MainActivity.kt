@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -57,5 +58,16 @@ private lateinit var navigationView: NavigationView
             return true
         }
             return super.onOptionsItemSelected(item)
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START))
+        {
+            drawerLayout.closeDrawer(GravityCompat.START)
+        }
+        else{
+            super.onBackPressed()
+        }
     }
 }

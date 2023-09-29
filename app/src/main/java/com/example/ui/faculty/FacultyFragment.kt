@@ -139,13 +139,16 @@ class FacultyFragment : Fragment() {
 
                         meDepartment.hasFixedSize()
                         meDepartment.layoutManager = LinearLayoutManager(
-                            requireContext(),
-                            LinearLayoutManager.HORIZONTAL,
-                            false
-                        )
+                            requireContext())
                         adapter = FacultyAdapter(listMe, requireContext())
                         meDepartment.adapter = adapter
                         adapter.notifyDataSetChanged()
+                        meDepartment.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+                            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                                super.onScrolled(recyclerView, dx, dy)
+                                meDepartment.isNestedScrollingEnabled = true
+                            }
+                        })
                         // meDepartment.startAnimation(animation)
                     }
                 }
@@ -183,13 +186,16 @@ class FacultyFragment : Fragment() {
 
                         eceDepartment.hasFixedSize()
                         eceDepartment.layoutManager = LinearLayoutManager(
-                            requireContext(),
-                            LinearLayoutManager.HORIZONTAL,
-                            false
-                        )
+                            requireContext())
                         adapter = FacultyAdapter(listEce, requireContext())
                         eceDepartment.adapter = adapter
                         adapter.notifyDataSetChanged()
+                        eceDepartment.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+                            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                                super.onScrolled(recyclerView, dx, dy)
+                                eceDepartment.isNestedScrollingEnabled = true
+                            }
+                        })
                         // eceDepartment.startAnimation(animation)
                     }
                 }
@@ -227,14 +233,16 @@ class FacultyFragment : Fragment() {
                         }
 
                         eeDepartment.hasFixedSize()
-                        eeDepartment.layoutManager = LinearLayoutManager(
-                            requireContext(),
-                            LinearLayoutManager.HORIZONTAL,
-                            false
-                        )
+                        eeDepartment.layoutManager = LinearLayoutManager(requireContext())
                         adapter = FacultyAdapter(listEe, requireContext())
                         eeDepartment.adapter = adapter
                         adapter.notifyDataSetChanged()
+                        eeDepartment.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+                            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                                super.onScrolled(recyclerView, dx, dy)
+                                eeDepartment.isNestedScrollingEnabled = true
+                            }
+                        })
                         //   eeDepartment.startAnimation(animation)
                     }
                 }
@@ -272,14 +280,16 @@ class FacultyFragment : Fragment() {
                         }
 
                         itDepartment.hasFixedSize()
-                        itDepartment.layoutManager = LinearLayoutManager(
-                            requireContext(),
-                            LinearLayoutManager.HORIZONTAL,
-                            false
-                        )
+                        itDepartment.layoutManager = LinearLayoutManager(requireContext())
                         adapter = FacultyAdapter(listIt, requireContext())
                         itDepartment.adapter = adapter
                         adapter.notifyDataSetChanged()
+                        itDepartment.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+                            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                                super.onScrolled(recyclerView, dx, dy)
+                                itDepartment.isNestedScrollingEnabled = true
+                            }
+                        })
                         // itDepartment.startAnimation(animation)
                     }
                 }
@@ -313,14 +323,16 @@ class FacultyFragment : Fragment() {
                         }
 
                         csDepartment.hasFixedSize()
-                        csDepartment.layoutManager = LinearLayoutManager(
-                            requireContext(),
-                            LinearLayoutManager.HORIZONTAL,
-                            false
-                        )
+                        csDepartment.layoutManager = LinearLayoutManager(requireContext())
                         adapter = FacultyAdapter(listCs, requireContext())
                         csDepartment.adapter = adapter
                         adapter.notifyDataSetChanged()
+                        csDepartment.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+                            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                                super.onScrolled(recyclerView, dx, dy)
+                                csDepartment.isNestedScrollingEnabled = true
+                            }
+                        })
                         // csDepartment.startAnimation(animation)
                     }
                 }
