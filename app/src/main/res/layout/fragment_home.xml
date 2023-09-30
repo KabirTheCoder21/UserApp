@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/container"
-    android:background="#C6C6C6"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.ui.home.HomeFragment">
     <androidx.core.widget.NestedScrollView
@@ -530,19 +529,46 @@
                android:layout_margin="2dp"
                android:background="@color/circleColor"
                android:nestedScrollingEnabled="false"/>-->
+
+           <androidx.cardview.widget.CardView
+               app:cardCornerRadius="12dp"
+               app:cardElevation="4dp"
+               android:layout_margin="12dp"
+               android:padding="4dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content">
+
+               <com.smarteist.autoimageslider.SliderView
+                   android:id="@+id/imageSlider2"
+                   android:layout_width="match_parent"
+                   android:layout_height="200dp"
+                   app:sliderAnimationDuration="600"
+                   app:sliderAutoCycleDirection="back_and_forth"
+                   app:sliderAutoCycleEnabled="true"
+                   app:sliderIndicatorAnimationDuration="600"
+                   app:sliderIndicatorGravity="center_horizontal|bottom"
+                   app:sliderIndicatorMargin="15dp"
+                   app:sliderIndicatorOrientation="horizontal"
+                   app:sliderIndicatorPadding="3dp"
+                   app:sliderIndicatorRadius="2dp"
+                   app:sliderIndicatorSelectedColor="#282727"
+                   app:sliderIndicatorUnselectedColor="#FFF"
+                   app:sliderScrollTimeInSec="1"
+                   app:sliderStartAutoCycle="true" />
+           </androidx.cardview.widget.CardView>
            <androidx.appcompat.widget.AppCompatTextView
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:text="Connect With Us : "
-               android:textSize="20sp"
+               android:textSize="16sp"
+               android:layout_marginStart="12dp"
                android:textColor="@color/textcolor"
                android:fontFamily="@font/latoregular"
-               android:gravity="center_horizontal"
                android:padding="5dp"/>
            <View
                android:layout_width="match_parent"
                android:layout_height="2dp"
-               android:layout_marginStart="6dp"
+               android:layout_marginStart="12dp"
                android:layout_marginEnd="6dp"
                android:layout_marginTop="3dp"
                android:background="@color/grey1"/>

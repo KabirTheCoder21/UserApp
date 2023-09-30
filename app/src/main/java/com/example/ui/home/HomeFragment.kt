@@ -39,6 +39,9 @@ class HomeFragment : Fragment() {
     lateinit var sliderAdapter: SliderAdapter
     lateinit var imageUrl: ArrayList<String>
 
+    private lateinit var sliderView2: SliderView
+    lateinit var sliderAdapter2: SliderAdapter2
+    lateinit var imageUrl2: ArrayList<String>
     private lateinit var map: ImageView
 
     lateinit var gridView: GridView
@@ -71,6 +74,7 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         sliderView = view.findViewById(R.id.imageSlider)
+        sliderView2 = view.findViewById(R.id.imageSlider2)
        // gridView = view.findViewById(R.id.grid_view)
         map = view.findViewById(R.id.image_map)
         contact_dir = view.findViewById(R.id.contect_directory)
@@ -184,7 +188,7 @@ class HomeFragment : Fragment() {
         setVideoPlayer()
        // setGridView()
         setMap()
-
+        setSlider2()
         return view
     }
 
@@ -398,7 +402,24 @@ class HomeFragment : Fragment() {
         super.onPause()
         exoPlayer.playWhenReady = false
     }
+    private fun setSlider2() {
+        imageUrl2 = ArrayList()
+        imageUrl2 =
+            (imageUrl2 + "https://seeklogo.com/images/U/uttar-pradesh-government-logo-1FA161CB94-seeklogo.com.png") as ArrayList<String>
+        imageUrl2 =
+            (imageUrl2 + "https://firebasestorage.googleapis.com/v0/b/my-college-app-1b5cd.appspot.com/o/image_data%2Fecell_lu.jpeg?alt=media&token=202b0614-ca27-4fc9-94a5-de18d6c3387d") as ArrayList<String>
+        imageUrl2 =
+            (imageUrl2 +  "https://firebasestorage.googleapis.com/v0/b/my-college-app-1b5cd.appspot.com/o/image_data%2Fslate_lu.png?alt=media&token=092b563f-8329-4ff1-8fb1-b383ff0d3557") as ArrayList<String>
+        imageUrl2 =
+            (imageUrl2 + "https://firebasestorage.googleapis.com/v0/b/my-college-app-1b5cd.appspot.com/o/image_data%2Ftpc.jpg?alt=media&token=0bb23017-a6de-4e89-9a41-e18e99a4b39e") as ArrayList<String>
 
+        sliderAdapter2 = SliderAdapter2(imageUrl2)
+        sliderView2.autoCycleDirection = SliderView.LAYOUT_DIRECTION_LTR
+        sliderView2.setSliderAdapter(sliderAdapter2)
+        sliderView2.scrollTimeInSec = 3
+        sliderView2.isAutoCycle = true
+        sliderView2.startAutoCycle()
+    }
     override fun onStart() {
         super.onStart()
 
