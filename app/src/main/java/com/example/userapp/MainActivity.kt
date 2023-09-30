@@ -78,7 +78,9 @@ private lateinit var progressDialog: ProgressDialog
                  }
                  R.id.navigation_ebooks-> Toast.makeText(applicationContext, "clicked on ebooks", Toast.LENGTH_SHORT).show()
                  R.id.navigation_website-> Toast.makeText(applicationContext, "clicked on websites", Toast.LENGTH_SHORT).show()
-                 R.id.navigation_share-> Toast.makeText(applicationContext, "clicked share", Toast.LENGTH_SHORT).show()
+                 R.id.navigation_share-> {
+                     shareApp()
+                 }
                  R.id.navigation_rate_us-> {
                      Toast.makeText(applicationContext, "clicked rate us", Toast.LENGTH_SHORT)
                          .show()
@@ -95,6 +97,15 @@ private lateinit var progressDialog: ProgressDialog
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
         NavController = Navigation.findNavController(this,R.id.frameLayout)
         NavigationUI.setupWithNavController(bottomNavigationView, NavController)
+    }
+
+    private fun shareApp() {
+        val appPackageName = packageName
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "text/plain"
+        intent.putExtra(Intent.EXTRA_TEXT, "Check out this cool app: https://play.google.com/store/apps/details?id=$appPackageName")
+
+        startActivity(Intent.createChooser(intent, "Share via"))
     }
 
     private fun rate() {
