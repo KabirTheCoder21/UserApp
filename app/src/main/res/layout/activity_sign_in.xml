@@ -17,31 +17,6 @@
         android:background="@drawable/day_bg"
         android:id="@+id/day_bg"/>
 
-
-    <ImageView
-        android:id="@+id/night_landscape"
-        android:layout_width="wrap_content"
-        android:layout_height="300dp"
-        android:src="@drawable/landscape_night"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.04" />
-
-    <ImageView
-        android:id="@+id/day_landscape"
-        android:layout_width="wrap_content"
-        android:layout_height="300dp"
-        android:src="@drawable/day_lanndscape"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.531" />
-
     <com.mahfa.dnswitch.DayNightSwitch
         android:id="@+id/day_night_swithch"
         android:layout_width="76dp"
