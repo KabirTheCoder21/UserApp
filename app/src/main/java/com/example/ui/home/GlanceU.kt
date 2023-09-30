@@ -18,11 +18,11 @@ import com.smarteist.autoimageslider.SliderView
 class GlanceU : AppCompatActivity() {
 
     private lateinit var sliderView: SliderView
-    private lateinit var sliderView2: SliderView
-
     lateinit var sliderAdapter: SliderAdapter
-    lateinit var sliderAdapter2: SliderAdapter2
     lateinit var imageUrl: ArrayList<String>
+
+    private lateinit var sliderView2: SliderView
+    lateinit var sliderAdapter2: SliderAdapter2
     lateinit var imageUrl2: ArrayList<String>
 
     private lateinit var insta : ImageView
