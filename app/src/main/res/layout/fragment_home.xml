@@ -521,6 +521,7 @@
                </com.google.android.material.card.MaterialCardView>
 
            </LinearLayout>
+
           <!-- <GridView
                android:id="@+id/grid_view"
                android:layout_width="match_parent"

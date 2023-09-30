@@ -1,9 +1,11 @@
 package com.example.userapp
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -19,19 +21,29 @@ topic = findViewById(R.id.topic)
         feedback = findViewById(R.id.feedback)
         send = findViewById(R.id.send)
         send.setOnClickListener {
-            val intent = Intent(Intent.ACTION_SENDTO).apply {
-                data = Uri.parse("mailto:kabirseth81@gmail.com")
-                putExtra(Intent.EXTRA_SUBJECT, topic.text.toString())
-                putExtra(Intent.EXTRA_TEXT, feedback.text.toString())
-                if (intent.resolveActivity(packageManager) != null) {
-                    startActivity(intent)
-                } else {
-                    // Handle the case where no email client is available
-                    // You can show a message or use a different approach
-                    Toast.makeText(this@Feedback, "No Client Exist", Toast.LENGTH_SHORT).show()
-                }
-
+            val subject = topic.text.toString().trim()
+            val txt = feedback.text.toString().trim()
+            if (!subject.isEmpty()
+                && !txt.isEmpty()) {
+                sendEmail(subject,txt)
+            } else {
+                Toast.makeText(this, "Please fill all the fields",
+                    Toast.LENGTH_SHORT).show();
             }
+        }
+    }
+
+    @SuppressLint("IntentReset")
+    private fun sendEmail(subject: String, txt: String) {
+        val mIntent = Intent(Intent.ACTION_SENDTO)
+        mIntent.data = Uri.parse("mailto:kabirseth81@gmail.com")
+        mIntent.putExtra(Intent.EXTRA_SUBJECT, subject)
+        mIntent.putExtra(Intent.EXTRA_TEXT, txt)
+
+        try {
+            startActivity(Intent.createChooser(mIntent, "Choose Email Client..."))
+        } catch (e: Exception) {
+            Toast.makeText(this, e.message, Toast.LENGTH_LONG).show()
         }
     }
 }
