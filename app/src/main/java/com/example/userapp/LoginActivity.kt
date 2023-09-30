@@ -1,5 +1,6 @@
 package com.example.userapp
 
+import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -23,6 +24,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var daySky: View
     private lateinit var nightSky: View
     private lateinit var dayNightSwitch: DayNightSwitch
+    private lateinit var progressDialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +39,7 @@ class LoginActivity : AppCompatActivity() {
         btn = findViewById(R.id.signin)
         sign = findViewById(R.id.signTXT)
         firebaseAuth = FirebaseAuth.getInstance()
+        progressDialog =ProgressDialog(this)
 
         dayNightSwitch.setListener(object : DayNightSwitchListener {
             override fun onSwitch(isNight: Boolean) {
@@ -51,6 +54,8 @@ class LoginActivity : AppCompatActivity() {
         })
 
         btn.setOnClickListener {
+            progressDialog.setMessage("Loading !")
+            progressDialog.show()
 
 //            binding.passwordlogin.clearFocus()
 
@@ -61,12 +66,13 @@ class LoginActivity : AppCompatActivity() {
 
                 firebaseAuth.signInWithEmailAndPassword(mail,pass).addOnCompleteListener {
                     if (it.isSuccessful){
-
+                        progressDialog.dismiss()
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                         finish()
                     }
                     else{
+                        progressDialog.dismiss()
                         Toast.makeText(this,it.exception.toString(), Toast.LENGTH_SHORT).show()
                     }
                 }
