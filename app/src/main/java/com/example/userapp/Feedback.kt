@@ -40,9 +40,9 @@ topic = findViewById(R.id.topic)
         mIntent.putExtra(Intent.EXTRA_SUBJECT, subject)
         mIntent.putExtra(Intent.EXTRA_TEXT, txt)
 
-        try {
+        try{
             startActivity(Intent.createChooser(mIntent, "Choose Email Client..."))
-        } catch (e: Exception) {
+        }catch (e: Exception){
             Toast.makeText(this, e.message, Toast.LENGTH_LONG).show()
         }
     }
