@@ -62,7 +62,11 @@ private lateinit var progressDialog: ProgressDialog
             {
                  R.id.navigation_video_lectures-> Toast.makeText(applicationContext, "we will upload soon! Keep in touch with us", Toast.LENGTH_SHORT).show()
 
+
                 R.id.navigation_ebooks-> {Toast.makeText(applicationContext, "clicked on ebooks", Toast.LENGTH_SHORT).show()
+
+                 R.id.navigation_ebooks-> {Toast.makeText(applicationContext, "clicked on ebooks", Toast.LENGTH_SHORT).show()
+
                  val intent = Intent(this,EbookActivity::class.java)
                  startActivity(intent)
                  }
@@ -70,13 +74,19 @@ private lateinit var progressDialog: ProgressDialog
                      val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.lkouniv.ac.in/"))
                      startActivity(webIntent)
                  }
-                  R.id.navigation_logout-> {
-                     showAlertDialog()
 
+                  R.id.navigation_logout-> {
+
+                R.id.navigation_logout-> {
+                     showAlertDialog()
                  }
+
                  R.id.navigation_share-> {
                      shareApp()
                  }
+
+                 R.id.navigation_share-> Toast.makeText(applicationContext, "clicked share", Toast.LENGTH_SHORT).show()
+
                  R.id.navigation_rate_us-> {
                      Toast.makeText(applicationContext, "clicked rate us", Toast.LENGTH_SHORT)
                          .show()
@@ -180,36 +190,23 @@ private lateinit var progressDialog: ProgressDialog
         }
     }
     private fun showAlertDialog() {
-        val alertDialogBuilder = AlertDialog.Builder(this)
-
-        // Set the dialog title
-        alertDialogBuilder.setTitle("Warning !")
-
-        // Set the dialog message
-        alertDialogBuilder.setMessage("Do you want to Logout ?")
-
-        // Add a positive button
-        alertDialogBuilder.setPositiveButton("Yes") { dialog, which ->
-            // Positive button action
-            // You can put your code here to handle the positive button click
-            val mAuth = FirebaseAuth.getInstance()
-            mAuth.signOut()
-            progressDialog.dismiss()
-            val intent = Intent(this, SignIn::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(intent)
-            finish()
-        }
-
-        // Add a negative button
-        alertDialogBuilder.setNegativeButton("No") { dialog, which ->
-            // Negative button action
-            // You can put your code here to handle the negative button click
-
-        }
-
-        // Create and show the alert dialog
-        val alertDialog = alertDialogBuilder.create()
-        alertDialog.show()
+        AlertDialog.Builder(this)
+            .setTitle("Warning!")
+            .setMessage("Do you want to Logout ?")
+            .setPositiveButton("Yes") { dialog, which ->
+                // Positive button action
+                val mAuth = FirebaseAuth.getInstance()
+                mAuth.signOut()
+                val intent = Intent(this, SignIn::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+                finish()
+            }
+            .setNegativeButton("No") { dialog, which ->
+                // Negative button action
+               dialog.dismiss()
+            }
+            .show()
     }
+
 }
