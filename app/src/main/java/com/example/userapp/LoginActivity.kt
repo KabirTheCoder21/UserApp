@@ -1,7 +1,10 @@
 package com.example.userapp
 
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -55,7 +58,7 @@ class LoginActivity : AppCompatActivity() {
 
         btn.setOnClickListener {
             progressDialog.setMessage("Loading !")
-            progressDialog.show()
+
 
 //            binding.passwordlogin.clearFocus()
 
@@ -63,7 +66,8 @@ class LoginActivity : AppCompatActivity() {
             val pass = pass.text.toString()
 //                val confirmPass=binding.
             if(mail.isNotEmpty() && pass.isNotEmpty() ){
-
+                if(isInternetAvailable()){
+                progressDialog.show()
                 firebaseAuth.signInWithEmailAndPassword(mail,pass).addOnCompleteListener {
                     if (it.isSuccessful){
                         progressDialog.dismiss()
@@ -75,9 +79,13 @@ class LoginActivity : AppCompatActivity() {
                         progressDialog.dismiss()
                         Toast.makeText(this,it.exception.toString(), Toast.LENGTH_SHORT).show()
                     }
+                }}
+                else{
+                    Toast.makeText(this, "Turn on Connectivity", Toast.LENGTH_SHORT).show()
                 }
             }
             else{
+                progressDialog.dismiss()
                 Toast.makeText(this,"Enter All fields", Toast.LENGTH_SHORT).show()
                 Toast.makeText(this,"pura daalo", Toast.LENGTH_SHORT).show()
             }
@@ -89,6 +97,18 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
     }
+
+    private fun isInternetAvailable(): Boolean {
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val network = connectivityManager.activeNetwork
+
+        if (network != null) {
+            val networkCapabilities = connectivityManager.getNetworkCapabilities(network)
+            return networkCapabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+        }
+        return false
+    }
+
     override fun onBackPressed() {
         finish()
     }

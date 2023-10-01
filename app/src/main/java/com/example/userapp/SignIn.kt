@@ -2,7 +2,10 @@ package com.example.userapp
 
 import android.annotation.SuppressLint
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -88,17 +91,7 @@ class SignIn : AppCompatActivity() {
         })
 
        photo.setOnClickListener{
-//           override fun onClick(v: View?) {
-//               ImagePicker.with(this@SignIn)
-//                   .crop()
-//                   .cropOval()
-//                   .compress(1024)
-//                   .maxResultSize(1080,1080)
-//                   .start()
-//           }
            selectImage.launch("image/*")
-
-
        }
         login.setOnClickListener{
             val intent = Intent(this,LoginActivity::class.java)
@@ -119,6 +112,7 @@ class SignIn : AppCompatActivity() {
             if (mail.isNotEmpty() && pass.isNotEmpty() && branchh!="Select Year" && yearr.isNotEmpty()&&namee.isNotEmpty() && urii!="null" ) {
 
                     // Check if the email is already in use
+                if(internetIsAvailable()){
 
                 progressDialog.setMessage("Loading !")
                 progressDialog.show()
@@ -136,10 +130,7 @@ class SignIn : AppCompatActivity() {
                                                 val intent = Intent(this, MainActivity::class.java)
                                                 startActivity(intent)
                                                 finish()
-                                                progressDialog.dismiss()
-                                                email.text?.clear()
-                                                password.text?.clear()
-                                                branch.text?.clear()
+
 
                                             } else {
                                                 // Registration failed
@@ -158,7 +149,10 @@ class SignIn : AppCompatActivity() {
                                 val exception = checkTask.exception
                                 Toast.makeText(this, "Error: " + exception?.message, Toast.LENGTH_SHORT).show()
                             }
-                        }
+                        }}
+                else{
+                    Toast.makeText(this, "Turn on Connectivity", Toast.LENGTH_SHORT).show()
+                }
             }
             else{
                 Toast.makeText(this,"Enter all Credentials",Toast.LENGTH_SHORT).show()
@@ -167,10 +161,21 @@ class SignIn : AppCompatActivity() {
 
     }
 
+    private fun internetIsAvailable(): Boolean {
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val network = connectivityManager.activeNetwork
+
+        if (network != null) {
+            val networkCapabilities = connectivityManager.getNetworkCapabilities(network)
+            return networkCapabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+        }
+        return false
+    }
+
     @SuppressLint("SuspiciousIndentation")
     private fun uploadImage() {
         val storageRef=FirebaseStorage.getInstance().getReference("profile")
-            .child(FirebaseAuth.getInstance().currentUser!!.uid).child("profile.jpg")
+            .child(FirebaseAuth.getInstance().currentUser!!.uid)
 
                 storageRef.putFile(imageUri!!)
             .addOnSuccessListener {
@@ -188,6 +193,7 @@ class SignIn : AppCompatActivity() {
 
     private fun storeData(imageUrl: Uri?) {
             val data =User(
+                email = email.text.toString(),
                 name = name.text.toString(),
                 branch = branchh,
                 year = yearr,

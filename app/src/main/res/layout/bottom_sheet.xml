@@ -6,16 +6,18 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/bottom_sheet"
             android:orientation="vertical">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/latobold"
-                android:gravity="center_horizontal"
+                android:layout_margin="9dp"
+                android:gravity="left"
                 android:text="Select Campus"
                 android:textColor="#6C5D5D"
-                android:textSize="32sp" />
+                android:textSize="24sp" />
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,7 +43,7 @@
                         android:text="Old Campus"
                         android:layout_margin="4dp"
                         android:fontFamily="@font/latolight"
-                        android:textSize="28sp"
+                        android:textSize="24sp"
                         android:textStyle="bold"
                         android:textColor="#6C5D5D"
                         />
@@ -73,7 +75,7 @@
                 android:text="New Campus"
                 android:layout_margin="4dp"
                 android:fontFamily="@font/latolight"
-                android:textSize="28sp"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 android:textColor="#6C5D5D"
                 />
