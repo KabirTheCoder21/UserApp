@@ -3,19 +3,23 @@ package com.example.userapp
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.DownloadManager
+import android.app.PendingIntent
 import android.app.ProgressDialog
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.Environment
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 
 
 
-class DownloadReceiver(val pdfShow: PdfShow, val downloadId: Long, val pd: ProgressDialog) : BroadcastReceiver() {
+class DownloadReceiver(
+    val pdfShow: PdfShow,
+    val downloadId: Long,
+    val pd: ProgressDialog
+) : BroadcastReceiver() {
     @SuppressLint("UnspecifiedImmutableFlag")
     override fun onReceive(context: Context?, intent: Intent?) {
         if (DownloadManager.ACTION_DOWNLOAD_COMPLETE == intent?.action) {

@@ -22,7 +22,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:navGraph="@navigation/navigation" />
+            app:navGraph="@navigation/navigation"/>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigationView"
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:background="?android:attr/windowBackground"
+            android:background="#fce5a3"
             app:menu="@menu/bottom_nav_menu"
             android:padding="8dp"
             android:elevation="12dp"

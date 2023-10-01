@@ -1,5 +1,6 @@
 package com.example.ui.gallery
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -21,6 +22,11 @@ class GalleryFragment : Fragment() {
     private lateinit var convoDB : DatabaseReference
     private lateinit var indDB : DatabaseReference
     private lateinit var otherDB : DatabaseReference
+    private lateinit var context: Context
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        this.context = context // Store the context when the fragment is attached
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,14 +42,16 @@ class GalleryFragment : Fragment() {
         indDB = dbref.child("Independence Day")
         otherDB = dbref.child("Other Events")
 
-        Thread{
-            getConvoImage()
-            getIndImage()
-            getOtherImage()
-        }.start()
         return view
     }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        // Call your data retrieval function here
+        getConvoImage()
+        getIndImage()
+        getOtherImage()
 
+    }
     private fun getOtherImage() {
         otherDB.addValueEventListener(
             object : ValueEventListener
@@ -56,8 +64,7 @@ class GalleryFragment : Fragment() {
                         imageList.add(data)
                     }
                     imageList.reverse()
-                    requireActivity().runOnUiThread {
-                        galleryAdapter = GalleryAdapter(requireContext(), imageList)
+                        galleryAdapter = GalleryAdapter(context, imageList)
                         otherRecyclerView.layoutManager = GridLayoutManager(requireContext(), 4)
                         otherRecyclerView.adapter = galleryAdapter
                         otherRecyclerView.setHasFixedSize(true)
@@ -83,10 +90,8 @@ class GalleryFragment : Fragment() {
                                 // Implement your logic based on the new state if needed.
                             }
                         })
-                    }
                    // ViewCompat.setNestedScrollingEnabled(otherRecyclerView, false);
                 }
-
                 override fun onCancelled(error: DatabaseError) {
                     error.message
                 }
@@ -107,8 +112,7 @@ class GalleryFragment : Fragment() {
                         imageList.add(data)
                     }
                     imageList.reverse()
-                    requireActivity().runOnUiThread {
-                        galleryAdapter = GalleryAdapter(requireContext(), imageList)
+                        galleryAdapter = GalleryAdapter(context, imageList)
                         indRecyclerView.layoutManager = GridLayoutManager(requireContext(), 4)
                         indRecyclerView.adapter = galleryAdapter
                         indRecyclerView.hasFixedSize()
@@ -134,7 +138,6 @@ class GalleryFragment : Fragment() {
                                 // Implement your logic based on the new state if needed.
                             }
                         })
-                    }
                     // ViewCompat.setNestedScrollingEnabled(indRecyclerView, false);
                 }
 
@@ -158,7 +161,6 @@ class GalleryFragment : Fragment() {
                         imageList.add(data)
                     }
                     imageList.reverse()
-                    requireActivity().runOnUiThread{
                         galleryAdapter = GalleryAdapter(requireContext(), imageList)
                         convoRecyclerView.layoutManager = GridLayoutManager(requireContext(), 4)
                         convoRecyclerView.adapter = galleryAdapter
@@ -185,7 +187,7 @@ class GalleryFragment : Fragment() {
                                 // Implement your logic based on the new state if needed.
                             }
                         })
-                    }
+
                  //   ViewCompat.setNestedScrollingEnabled(convoRecyclerView, false);
                 }
 

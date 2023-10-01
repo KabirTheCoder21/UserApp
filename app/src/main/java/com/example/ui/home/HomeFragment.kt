@@ -394,8 +394,17 @@ class HomeFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        exoPlayer.playWhenReady = true
-        exoPlayer.play()
+        if(isPlay)
+        {
+            exoPlayer.playWhenReady = false
+            manuallyPaused = true
+            isPlay = false
+        }
+        else{
+            exoPlayer.playWhenReady = true
+            isPlay = true
+            manuallyPaused = false
+        }
     }
 
     override fun onPause() {

@@ -56,7 +56,7 @@
                           android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:orientation="vertical"
-                          android:background="#F7F6F6">
+                          android:background="#fce194">
 
                           <de.hdodenhof.circleimageview.CircleImageView
                               android:layout_width="match_parent"
@@ -85,7 +85,7 @@
                           android:layout_width="match_parent"
                           android:layout_height="match_parent"
                           android:orientation="vertical"
-                          android:background="#F7F6F6"
+                          android:background="#fce194"
                           android:id="@+id/campuses">
 
                           <de.hdodenhof.circleimageview.CircleImageView
@@ -115,7 +115,7 @@
                           android:layout_width="match_parent"
                           android:layout_height="match_parent"
                           android:orientation="vertical"
-                          android:background="#F7F6F6">
+                          android:background="#fce194">
                           <de.hdodenhof.circleimageview.CircleImageView
                               android:layout_width="match_parent"
                               android:layout_height="80dp"
@@ -165,7 +165,7 @@
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"
                        android:orientation="vertical"
-                       android:background="#F7F6F6">
+                       android:background="#fce194">
 
                        <androidx.appcompat.widget.AppCompatImageView
                            android:layout_width="match_parent"
@@ -194,7 +194,7 @@
                        android:layout_width="match_parent"
                        android:layout_height="match_parent"
                        android:orientation="vertical"
-                       android:background="#F7F6F6">
+                       android:background="#fce194">
 
                        <androidx.appcompat.widget.AppCompatImageView
                            android:layout_width="match_parent"
@@ -223,7 +223,7 @@
                        android:layout_width="match_parent"
                        android:layout_height="match_parent"
                        android:orientation="vertical"
-                       android:background="#F7F6F6">
+                       android:background="#fce194">
                        <androidx.appcompat.widget.AppCompatImageView
                            android:layout_width="match_parent"
                            android:layout_height="80dp"
@@ -258,7 +258,7 @@
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"
                        android:orientation="vertical"
-                       android:background="#F7F6F6">
+                       android:background="#fce194">
 
                        <androidx.appcompat.widget.AppCompatImageView
                            android:layout_width="match_parent"
@@ -287,7 +287,7 @@
                        android:layout_width="match_parent"
                        android:layout_height="match_parent"
                        android:orientation="vertical"
-                       android:background="#F7F6F6">
+                       android:background="#fce194">
 
                        <androidx.appcompat.widget.AppCompatImageView
                            android:layout_width="match_parent"
@@ -315,7 +315,7 @@
                        android:layout_width="match_parent"
                        android:layout_height="match_parent"
                        android:orientation="vertical"
-                       android:background="#F7F6F6">
+                       android:background="#fce194">
                        <androidx.appcompat.widget.AppCompatImageView
                            android:layout_width="match_parent"
                            android:layout_height="80dp"
@@ -350,7 +350,7 @@
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"
                        android:orientation="vertical"
-                       android:background="#F7F6F6">
+                       android:background="#fce194">
 
                        <androidx.appcompat.widget.AppCompatImageView
                            android:layout_width="match_parent"
@@ -379,7 +379,7 @@
                        android:layout_width="match_parent"
                        android:layout_height="match_parent"
                        android:orientation="vertical"
-                       android:background="#F7F6F6">
+                       android:background="#fce194">
 
                        <androidx.appcompat.widget.AppCompatImageView
                            android:layout_width="match_parent"
@@ -408,7 +408,7 @@
                        android:layout_width="match_parent"
                        android:layout_height="match_parent"
                        android:orientation="vertical"
-                       android:background="#F7F6F6">
+                       android:background="#fce194">
                        <androidx.appcompat.widget.AppCompatImageView
                            android:layout_width="match_parent"
                            android:layout_height="80dp"
@@ -443,7 +443,7 @@
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"
                        android:orientation="vertical"
-                       android:background="#F7F6F6">
+                       android:background="#fce194">
 
                        <androidx.appcompat.widget.AppCompatImageView
                            android:layout_width="match_parent"
@@ -472,7 +472,7 @@
                        android:layout_width="match_parent"
                        android:layout_height="match_parent"
                        android:orientation="vertical"
-                       android:background="#F7F6F6">
+                       android:background="#fce194">
 
                        <androidx.appcompat.widget.AppCompatImageView
                            android:layout_width="match_parent"
@@ -501,7 +501,7 @@
                        android:layout_width="match_parent"
                        android:layout_height="match_parent"
                        android:orientation="vertical"
-                       android:background="#F7F6F6">
+                       android:background="#fce194">
                        <androidx.appcompat.widget.AppCompatImageView
                            android:layout_width="match_parent"
                            android:layout_height="80dp"
@@ -559,6 +559,7 @@
            <androidx.appcompat.widget.AppCompatTextView
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
+               android:background="#fce5a3"
                android:text="Connect With Us : "
                android:textSize="16sp"
                android:layout_marginStart="12dp"
@@ -589,7 +590,8 @@
            <LinearLayout
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               android:orientation="vertical">
+               android:orientation="vertical"
+               android:background="#fce194">
                <de.hdodenhof.circleimageview.CircleImageView
                    android:layout_width="match_parent"
                    android:layout_height="70dp"
@@ -600,6 +602,7 @@
                    android:gravity="center"
                    android:textSize="14sp"
                    android:fontFamily="@font/latobold"
+                   android:background="#fce5a3"
                    android:text="© University of Lucknow \n226007, India"/>
            </LinearLayout>
         <LinearLayout
@@ -609,7 +612,8 @@
             android:weightSum="8"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="3dp"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:background="#fce194">
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
