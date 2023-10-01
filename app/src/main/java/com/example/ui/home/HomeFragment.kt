@@ -10,9 +10,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.GridView
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.core.widget.NestedScrollView
 import com.example.userapp.R
 import com.google.android.exoplayer2.ExoPlayer
@@ -49,6 +51,9 @@ class HomeFragment : Fragment() {
     private lateinit var styledPV : StyledPlayerView
     private lateinit var exoPlayer : ExoPlayer
 
+    private lateinit var old_camp:LinearLayout
+    private lateinit var new_camp:LinearLayout
+
     private lateinit var bottomSheetDialog : BottomSheetDialog
     private lateinit var campuses : LinearLayout
     private lateinit var contact_dir : CardView
@@ -64,7 +69,7 @@ class HomeFragment : Fragment() {
     private lateinit var udrc : CardView
     private lateinit var fees : CardView
     private lateinit var schoral : CardView
-
+//    private lateinit var bottomSheetView:BottomSheetDialog
     private var isPlay = true
     private var manuallyPaused = false // Added manuallyPaused flag
     override fun onCreateView(
@@ -98,6 +103,8 @@ class HomeFragment : Fragment() {
         facebook = view.findViewById(R.id.facebook)
         twitter = view.findViewById(R.id.twitter)
         youtube = view.findViewById(R.id.youtube)
+
+        bottomSheetDialog = BottomSheetDialog(requireContext())
 
 
         insta.setOnClickListener {
@@ -189,6 +196,7 @@ class HomeFragment : Fragment() {
        // setGridView()
         setMap()
         setSlider2()
+
         return view
     }
 
@@ -209,10 +217,28 @@ class HomeFragment : Fragment() {
     }
 
     private fun showBottomSheet() {
-         bottomSheetDialog = BottomSheetDialog(requireContext())
+
         val dialogView = layoutInflater.inflate(R.layout.bottom_sheet, null)
         bottomSheetDialog.setContentView(dialogView)
         bottomSheetDialog.show()
+
+        val buttonInsideBottomSheet = dialogView.findViewById<LinearLayout>(R.id.old_campus)
+        buttonInsideBottomSheet.setOnClickListener {
+            // Your click action code here
+            // For example, show a Toast message
+//            Toast.makeText(requireContext(), "Clicked On old Camp", Toast.LENGTH_SHORT).show()
+            val url = "https://www.lkouniv.ac.in/"
+            openUrlInCustomTab(url)
+        }
+
+        val buttonInsideBottomSheet2 = dialogView.findViewById<LinearLayout>(R.id.new_campus)
+        buttonInsideBottomSheet2.setOnClickListener {
+            // Your click action code here
+            // For example, show a Toast message
+//            Toast.makeText(requireContext(), "Clicked On new Camp", Toast.LENGTH_SHORT).show()
+            val url = "https://www.lkouniv.ac.in/en/page/faculty-of-engineering-pages"
+            openUrlInCustomTab(url)
+        }
     }
 
     @SuppressLint("SuspiciousIndentation")

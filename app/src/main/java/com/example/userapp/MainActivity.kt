@@ -62,8 +62,7 @@ private lateinit var progressDialog: ProgressDialog
             {
                  R.id.navigation_video_lectures-> Toast.makeText(applicationContext, "we will upload soon! Keep in touch with us", Toast.LENGTH_SHORT).show()
 
-                 R.id.navigation_logout-> Toast.makeText(applicationContext, "clicked logout", Toast.LENGTH_SHORT).show()
-                 R.id.navigation_ebooks-> {Toast.makeText(applicationContext, "clicked on ebooks", Toast.LENGTH_SHORT).show()
+                R.id.navigation_ebooks-> {Toast.makeText(applicationContext, "clicked on ebooks", Toast.LENGTH_SHORT).show()
                  val intent = Intent(this,EbookActivity::class.java)
                  startActivity(intent)
                  }
@@ -71,13 +70,10 @@ private lateinit var progressDialog: ProgressDialog
                      val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.lkouniv.ac.in/"))
                      startActivity(webIntent)
                  }
-              R.id.navigation_logout-> Toast.makeText(applicationContext, "clicked logout", Toast.LENGTH_SHORT).show()
-                 R.id.navigation_logout-> {
+                  R.id.navigation_logout-> {
                      showAlertDialog()
 
                  }
-                 R.id.navigation_ebooks-> Toast.makeText(applicationContext, "clicked on ebooks", Toast.LENGTH_SHORT).show()
-                 R.id.navigation_website-> Toast.makeText(applicationContext, "clicked on websites", Toast.LENGTH_SHORT).show()
                  R.id.navigation_share-> {
                      shareApp()
                  }
