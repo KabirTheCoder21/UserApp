@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.GridView
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.core.widget.NestedScrollView
 import com.example.userapp.R
 import com.google.android.exoplayer2.ExoPlayer
@@ -24,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.browser.customtabs.CustomTabColorSchemeParams
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.cardview.widget.CardView
+import com.example.userapp.Utility
 
 class HomeFragment : Fragment() {
 
@@ -94,11 +96,14 @@ class HomeFragment : Fragment() {
         styledPV = view.findViewById(R.id.styledPV)
         nestedScrollView = view.findViewById(R.id.nestedScrollView)
 
+        if(!Utility.isNetworkAvailable(requireContext())){
+            Toast.makeText(requireContext(), "Check Internet Connection !", Toast.LENGTH_SHORT).show()
+        }
+
         insta = view.findViewById(R.id.insta)
         facebook = view.findViewById(R.id.facebook)
         twitter = view.findViewById(R.id.twitter)
         youtube = view.findViewById(R.id.youtube)
-
 
         insta.setOnClickListener {
             goToUrl("https://www.instagram.com/lucknow_university__lu/?hl=en","insta")
@@ -393,7 +398,7 @@ class HomeFragment : Fragment() {
     }
 
     override fun onResume() {
-        super.onResume()
+
         if(isPlay)
         {
             exoPlayer.playWhenReady = false
@@ -405,6 +410,10 @@ class HomeFragment : Fragment() {
             isPlay = true
             manuallyPaused = false
         }
+        if(!Utility.isNetworkAvailable(requireContext())){
+            Toast.makeText(requireContext(), "Check Internet Connection !", Toast.LENGTH_SHORT).show()
+        }
+        super.onResume()
     }
 
     override fun onPause() {

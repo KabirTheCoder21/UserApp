@@ -6,11 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.userapp.R
+import com.example.userapp.Utility
 import com.google.firebase.database.*
+import okhttp3.internal.Util
 
 
 class GalleryFragment : Fragment() {
@@ -41,6 +44,10 @@ class GalleryFragment : Fragment() {
         convoDB = dbref.child("Convocation")
         indDB = dbref.child("Independence Day")
         otherDB = dbref.child("Other Events")
+        if (!Utility.isNetworkAvailable(context))
+        {
+            Toast.makeText(context, "Check Internet Connection !", Toast.LENGTH_SHORT).show()
+        }
 
         return view
     }
@@ -200,9 +207,12 @@ class GalleryFragment : Fragment() {
     }
 
     override fun onResume() {
-        super.onResume()
         getConvoImage()
         getIndImage()
         getOtherImage()
+        if(!Utility.isNetworkAvailable(requireContext())){
+            Toast.makeText(requireContext(), "Check Internet Connection !", Toast.LENGTH_SHORT).show()
+        }
+        super.onResume()
     }
 }

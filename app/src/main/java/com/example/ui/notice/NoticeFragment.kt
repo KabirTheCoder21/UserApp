@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.userapp.R
+import com.example.userapp.Utility
 import com.google.firebase.database.*
 
 class NoticeFragment : Fragment() {
@@ -33,6 +34,11 @@ class NoticeFragment : Fragment() {
         dbref = FirebaseDatabase.getInstance().getReference().child("Notice")
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.hasFixedSize()
+        if(!Utility.isNetworkAvailable(requireContext()))
+        {
+            Toast.makeText(requireContext(), "Check internet Connection !", Toast.LENGTH_SHORT).show()
+            progressBar.visibility = View.GONE
+        }
         getNotice()
         return view
     }

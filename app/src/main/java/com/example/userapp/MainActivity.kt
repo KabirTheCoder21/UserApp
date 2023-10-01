@@ -58,6 +58,10 @@ private lateinit var progressDialog: ProgressDialog
         drawerLayout.addDrawerListener(actionBarDrawerToggle)
         actionBarDrawerToggle.syncState()
 
+        if(!Utility.isNetworkAvailable(this))
+        {
+            Toast.makeText(this, "Check Internet Connection !", Toast.LENGTH_SHORT).show()
+        }
         // Change the background color of the support action bar
         val actionBar = supportActionBar
         actionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, R.color.action_bar)))
@@ -193,4 +197,11 @@ private lateinit var progressDialog: ProgressDialog
             .show()
     }
 
+    override fun onResume() {
+        super.onResume()
+        if(!Utility.isNetworkAvailable(this))
+        {
+            Toast.makeText(this, "Check Internet Connection !", Toast.LENGTH_SHORT).show()
+        }
+    }
 }

@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.userapp.R
+import com.example.userapp.Utility
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.coroutines.CoroutineScope
@@ -53,6 +54,11 @@ class FacultyFragment : Fragment() {
         eeDepartment = view.findViewById(R.id.eeDepartment)
         eceDepartment = view.findViewById(R.id.eceDepartment)
         reference = FirebaseDatabase.getInstance().getReference().child("Faculty")
+
+        if(!Utility.isNetworkAvailable(requireContext()))
+        {
+            Toast.makeText(requireContext(), "Check Internet Connection !", Toast.LENGTH_SHORT).show()
+        }
 
         val csTv = view.findViewById<TextView>(R.id.csTv)
 
@@ -344,6 +350,14 @@ class FacultyFragment : Fragment() {
                         .show()
                 }
             }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if(!Utility.isNetworkAvailable(requireContext()))
+        {
+            Toast.makeText(requireContext(), "Check Internet Connection !", Toast.LENGTH_SHORT).show()
         }
     }
 }
