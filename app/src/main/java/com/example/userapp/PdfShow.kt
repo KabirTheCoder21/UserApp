@@ -32,7 +32,7 @@ class PdfShow : AppCompatActivity() {
     private lateinit var url : String
     val destinationPath = "${Environment.getExternalStorageDirectory().absolutePath}/Download/"
     private lateinit var progressBar: ProgressBar
-    private lateinit var downloadReceiver: BroadcastReceiver
+    private var downloadReceiver: BroadcastReceiver? = null
     private lateinit var pd :ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,6 +77,7 @@ class PdfShow : AppCompatActivity() {
         super.onDestroy()
 
         // Unregister the BroadcastReceiver when the activity is destroyed
+if(downloadReceiver!=null)
         unregisterReceiver(downloadReceiver)
     }
     private fun createNotificationChannel() {

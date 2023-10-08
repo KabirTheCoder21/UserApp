@@ -192,13 +192,13 @@ class GlanceU : AppCompatActivity() {
     private fun setSlider() {
         imageUrl = ArrayList()
         imageUrl =
-            (imageUrl + "https://firebasestorage.googleapis.com/v0/b/my-college-app-1b5cd.appspot.com/o/gallery%2FIMG-20230917-WA0050.jpg?alt=media&token=4f6b2b9a-24bf-47ac-815a-c5c53f55675f") as ArrayList<String>
+            (imageUrl + "https://firebasestorage.googleapis.com/v0/b/my-college-app-1b5cd.appspot.com/o/profile%2Flu1.jpg?alt=media&token=7cd5f421-4718-4620-8b6f-bba7383429b6") as ArrayList<String>
         imageUrl =
-            (imageUrl + "https://firebasestorage.googleapis.com/v0/b/my-college-app-1b5cd.appspot.com/o/gallery%2FIMG-20230917-WA0045.jpg?alt=media&token=505b909d-c6c8-4579-9ab1-356e04fd6c27") as ArrayList<String>
+            (imageUrl + "https://firebasestorage.googleapis.com/v0/b/my-college-app-1b5cd.appspot.com/o/profile%2Flu3.jpg?alt=media&token=22d7ca42-b079-4b5d-af8f-88cb5a6223d7") as ArrayList<String>
         imageUrl =
-            (imageUrl + "https://firebasestorage.googleapis.com/v0/b/my-college-app-1b5cd.appspot.com/o/gallery%2FIMG-20230917-WA0040.jpg?alt=media&token=c50389e0-f474-4b02-8dd2-47101b5fe3f7") as ArrayList<String>
+            (imageUrl + "https://firebasestorage.googleapis.com/v0/b/my-college-app-1b5cd.appspot.com/o/profile%2Flu2.jpg?alt=media&token=b6c22300-611c-45cf-b1c2-276a9517d0a5") as ArrayList<String>
         imageUrl =
-            (imageUrl + "https://firebasestorage.googleapis.com/v0/b/my-college-app-1b5cd.appspot.com/o/gallery%2FIMG-20230917-WA0046.jpg?alt=media&token=0d4b0e10-d616-444c-8e08-85834024d5ec") as ArrayList<String>
+            (imageUrl + "https://firebasestorage.googleapis.com/v0/b/my-college-app-1b5cd.appspot.com/o/profile%2Flu4.jpg?alt=media&token=3b1b8d5e-0d9e-4b49-99c0-83b52f97bbcc") as ArrayList<String>
 
         sliderAdapter = SliderAdapter(imageUrl)
         sliderView.autoCycleDirection = SliderView.LAYOUT_DIRECTION_LTR
@@ -212,11 +212,11 @@ class GlanceU : AppCompatActivity() {
         imageUrl2 =
             (imageUrl2 + "https://seeklogo.com/images/U/uttar-pradesh-government-logo-1FA161CB94-seeklogo.com.png") as ArrayList<String>
         imageUrl2 =
-            (imageUrl2 + "https://firebasestorage.googleapis.com/v0/b/my-college-app-1b5cd.appspot.com/o/image_data%2Fecell_lu.jpeg?alt=media&token=202b0614-ca27-4fc9-94a5-de18d6c3387d") as ArrayList<String>
+            (imageUrl2 + "https://firebasestorage.googleapis.com/v0/b/my-college-app-1b5cd.appspot.com/o/profile%2Fecell.jpg?alt=media&token=0b24ea64-86f2-448f-a361-680b5efcfc88") as ArrayList<String>
         imageUrl2 =
-            (imageUrl2 +  "https://firebasestorage.googleapis.com/v0/b/my-college-app-1b5cd.appspot.com/o/image_data%2Fslate_lu.png?alt=media&token=092b563f-8329-4ff1-8fb1-b383ff0d3557") as ArrayList<String>
+            (imageUrl2 +  "https://firebasestorage.googleapis.com/v0/b/my-college-app-1b5cd.appspot.com/o/profile%2Fslate.png?alt=media&token=06d72f99-53fb-4cbe-8bc5-35a12e787851") as ArrayList<String>
         imageUrl2 =
-            (imageUrl2 + "https://firebasestorage.googleapis.com/v0/b/my-college-app-1b5cd.appspot.com/o/image_data%2Ftpc.jpg?alt=media&token=0bb23017-a6de-4e89-9a41-e18e99a4b39e") as ArrayList<String>
+            (imageUrl2 + "https://firebasestorage.googleapis.com/v0/b/my-college-app-1b5cd.appspot.com/o/profile%2Ftpc.png?alt=media&token=5c81c587-8696-4816-b4e3-e9829d0628ab") as ArrayList<String>
 
         sliderAdapter2 = SliderAdapter2(imageUrl2)
         sliderView2.autoCycleDirection = SliderView.LAYOUT_DIRECTION_LTR

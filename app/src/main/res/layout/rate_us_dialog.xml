@@ -15,7 +15,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:background="@color/dialog_color_1" />
+            android:background="#99A98F" />
         <RelativeLayout
             android:layout_width="150dp"
             android:layout_height="150dp"
@@ -88,12 +88,12 @@
                 android:id="@+id/rate_now"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rate Now"
-                android:layout_marginStart="20dp"
+                android:text="Rate Us Now"
+                android:layout_marginStart="18dp"
                 android:textAllCaps="false"
                 android:textColor="#CC000000"
                 android:paddingStart="20dp"
-                android:paddingEnd="20dp"
+                android:paddingEnd="17dp"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
         </LinearLayout>
     </LinearLayout>

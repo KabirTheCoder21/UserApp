@@ -15,7 +15,7 @@
         android:layout_margin="22dp"
         app:cardCornerRadius="12dp"
         android:elevation="8dp"
-        app:cardBackgroundColor="@color/grey2">
+        app:cardBackgroundColor="#E3F3DA">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"

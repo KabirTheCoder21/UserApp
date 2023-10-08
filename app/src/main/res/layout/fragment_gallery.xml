@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#D0E7D2"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.ui.gallery.GalleryFragment">
     <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -18,7 +19,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 app:cardCornerRadius="12dp"
-                app:cardBackgroundColor="@color/grey2"
+                app:cardBackgroundColor="#B0D9B1"
                 android:layout_marginVertical="8dp"
                 android:layout_weight="1">
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -54,7 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 app:cardCornerRadius="12dp"
-                app:cardBackgroundColor="@color/grey2"
+                app:cardBackgroundColor="#B0D9B1"
                 android:layout_marginVertical="8dp"
                 android:layout_weight="1">
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -90,7 +91,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 app:cardCornerRadius="12dp"
-                app:cardBackgroundColor="@color/grey2"
+                app:cardBackgroundColor="#B0D9B1"
                 android:layout_marginVertical="8dp"
                 android:layout_weight="1">
                 <androidx.appcompat.widget.LinearLayoutCompat

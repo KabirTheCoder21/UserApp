@@ -1,7 +1,10 @@
 package com.example.userapp
 
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -21,18 +24,11 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var sign:TextView
     private lateinit var firebaseAuth:FirebaseAuth
 
-    private lateinit var daySky: View
-    private lateinit var nightSky: View
-    private lateinit var dayNightSwitch: DayNightSwitch
     private lateinit var progressDialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
-        daySky = findViewById(R.id.day_bg)
-        nightSky = findViewById(R.id.night_bg)
-        dayNightSwitch = findViewById(R.id.day_night_swithch)
 
         email = findViewById(R.id.email_et)
         pass = findViewById(R.id.pass_et)
@@ -41,21 +37,9 @@ class LoginActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         progressDialog =ProgressDialog(this)
 
-        dayNightSwitch.setListener(object : DayNightSwitchListener {
-            override fun onSwitch(isNight: Boolean) {
-                if (isNight) {
-//                    dayLand.animate().alpha(0f).setDuration(1300)
-                    daySky.animate().alpha(0f).setDuration(1300)
-                } else {
-//                    dayLand.animate().alpha(1f).setDuration(1300)
-                    daySky.animate().alpha(1f).setDuration(1300)
-                }
-            }
-        })
-
         btn.setOnClickListener {
             progressDialog.setMessage("Loading !")
-            progressDialog.show()
+
 
 //            binding.passwordlogin.clearFocus()
 
@@ -63,7 +47,8 @@ class LoginActivity : AppCompatActivity() {
             val pass = pass.text.toString()
 //                val confirmPass=binding.
             if(mail.isNotEmpty() && pass.isNotEmpty() ){
-
+                if(isInternetAvailable()){
+                progressDialog.show()
                 firebaseAuth.signInWithEmailAndPassword(mail,pass).addOnCompleteListener {
                     if (it.isSuccessful){
                         progressDialog.dismiss()
@@ -75,9 +60,13 @@ class LoginActivity : AppCompatActivity() {
                         progressDialog.dismiss()
                         Toast.makeText(this,it.exception.toString(), Toast.LENGTH_SHORT).show()
                     }
+                }}
+                else{
+                    Toast.makeText(this, "Turn on Connectivity", Toast.LENGTH_SHORT).show()
                 }
             }
             else{
+                progressDialog.dismiss()
                 Toast.makeText(this,"Enter All fields", Toast.LENGTH_SHORT).show()
                 Toast.makeText(this,"pura daalo", Toast.LENGTH_SHORT).show()
             }
@@ -89,6 +78,18 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
     }
+
+    private fun isInternetAvailable(): Boolean {
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val network = connectivityManager.activeNetwork
+
+        if (network != null) {
+            val networkCapabilities = connectivityManager.getNetworkCapabilities(network)
+            return networkCapabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+        }
+        return false
+    }
+
     override fun onBackPressed() {
         finish()
     }

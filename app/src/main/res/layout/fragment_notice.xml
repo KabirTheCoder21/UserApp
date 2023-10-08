@@ -6,7 +6,8 @@
     tools:context="com.example.ui.notice.NoticeFragment">
      <androidx.constraintlayout.widget.ConstraintLayout
          android:layout_width="match_parent"
-         android:layout_height="match_parent">
+         android:layout_height="match_parent"
+         android:background="#D0E7D2">
 
           <androidx.recyclerview.widget.RecyclerView
               android:id="@+id/notice_rv"

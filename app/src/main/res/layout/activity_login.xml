@@ -4,29 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#D0E7D2"
     tools:context=".LoginActivity">
-
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/night_bg"
-        android:id="@+id/night_bg"/>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/day_bg"
-        android:id="@+id/day_bg"/>
-
-    <com.mahfa.dnswitch.DayNightSwitch
-        android:id="@+id/day_night_swithch"
-        android:layout_width="76dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.952"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/email_et"
@@ -35,6 +14,7 @@
         android:background="@drawable/edit_text_bg"
         android:hint="Email"
         android:paddingLeft="20dp"
+        android:inputType="textEmailAddress"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:textColor="#fff"
@@ -43,7 +23,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/night_bg"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.2"
         app:layout_constraintWidth_percent=".8" />
     <EditText
@@ -70,7 +50,7 @@
         android:id="@+id/signin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/black"
+        android:backgroundTint="#254A27"
         android:padding="10dp"
         android:text="Log In"
         android:textSize="16sp"

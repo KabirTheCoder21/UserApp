@@ -2,7 +2,10 @@ package com.example.userapp
 
 import android.annotation.SuppressLint
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -25,9 +28,7 @@ import com.mahfa.dnswitch.DayNightSwitchListener
 
 class SignIn : AppCompatActivity() {
 
-    private lateinit var daySky: View
-    private lateinit var nightSky: View
-    private lateinit var dayNightSwitch:DayNightSwitch
+
     private lateinit var button:Button
     private lateinit var login:TextView
 
@@ -57,9 +58,6 @@ class SignIn : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
 
-        daySky = findViewById(R.id.day_bg)
-        nightSky = findViewById(R.id.night_bg)
-        dayNightSwitch = findViewById(R.id.day_night_swithch)
         button = findViewById(R.id.signin)
         login = findViewById(R.id.logini)
 
@@ -75,30 +73,8 @@ class SignIn : AppCompatActivity() {
         progressDialog = ProgressDialog(this)
         progressDialog.setMessage("Loading !")
 
-        dayNightSwitch.setListener(object : DayNightSwitchListener {
-            override fun onSwitch(isNight: Boolean) {
-                if (isNight) {
-//                    dayLand.animate().alpha(0f).setDuration(1300)
-                    daySky.animate().alpha(0f).setDuration(1300)
-                } else {
-//                    dayLand.animate().alpha(1f).setDuration(1300)
-                    daySky.animate().alpha(1f).setDuration(1300)
-                }
-            }
-        })
-
        photo.setOnClickListener{
-//           override fun onClick(v: View?) {
-//               ImagePicker.with(this@SignIn)
-//                   .crop()
-//                   .cropOval()
-//                   .compress(1024)
-//                   .maxResultSize(1080,1080)
-//                   .start()
-//           }
            selectImage.launch("image/*")
-
-
        }
         login.setOnClickListener{
             val intent = Intent(this,LoginActivity::class.java)
@@ -119,6 +95,7 @@ class SignIn : AppCompatActivity() {
             if (mail.isNotEmpty() && pass.isNotEmpty() && branchh!="Select Year" && yearr.isNotEmpty()&&namee.isNotEmpty() && urii!="null" ) {
 
                     // Check if the email is already in use
+                if(internetIsAvailable()){
 
                 progressDialog.setMessage("Loading !")
                 progressDialog.show()
@@ -136,10 +113,7 @@ class SignIn : AppCompatActivity() {
                                                 val intent = Intent(this, MainActivity::class.java)
                                                 startActivity(intent)
                                                 finish()
-                                                progressDialog.dismiss()
-                                                email.text?.clear()
-                                                password.text?.clear()
-                                                branch.text?.clear()
+
 
                                             } else {
                                                 // Registration failed
@@ -158,7 +132,10 @@ class SignIn : AppCompatActivity() {
                                 val exception = checkTask.exception
                                 Toast.makeText(this, "Error: " + exception?.message, Toast.LENGTH_SHORT).show()
                             }
-                        }
+                        }}
+                else{
+                    Toast.makeText(this, "Turn on Connectivity", Toast.LENGTH_SHORT).show()
+                }
             }
             else{
                 Toast.makeText(this,"Enter all Credentials",Toast.LENGTH_SHORT).show()
@@ -167,10 +144,21 @@ class SignIn : AppCompatActivity() {
 
     }
 
+    private fun internetIsAvailable(): Boolean {
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val network = connectivityManager.activeNetwork
+
+        if (network != null) {
+            val networkCapabilities = connectivityManager.getNetworkCapabilities(network)
+            return networkCapabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+        }
+        return false
+    }
+
     @SuppressLint("SuspiciousIndentation")
     private fun uploadImage() {
         val storageRef=FirebaseStorage.getInstance().getReference("profile")
-            .child(FirebaseAuth.getInstance().currentUser!!.uid).child("profile.jpg")
+            .child(FirebaseAuth.getInstance().currentUser!!.uid)
 
                 storageRef.putFile(imageUri!!)
             .addOnSuccessListener {
@@ -188,6 +176,7 @@ class SignIn : AppCompatActivity() {
 
     private fun storeData(imageUrl: Uri?) {
             val data =User(
+                email = email.text.toString(),
                 name = name.text.toString(),
                 branch = branchh,
                 year = yearr,

@@ -30,11 +30,13 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:background="?android:attr/windowBackground"
+            android:background="#618264"
             app:menu="@menu/bottom_nav_menu"
             android:padding="8dp"
             android:elevation="12dp"
-            app:labelVisibilityMode="selected" />
+            app:labelVisibilityMode="selected"
+            app:itemTextColor="@color/white"
+            app:itemIconTint="@color/white"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <com.google.android.material.navigation.NavigationView
